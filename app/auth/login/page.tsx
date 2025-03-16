@@ -1,14 +1,16 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { Inter } from 'next/font/google'
+import { createClient } from '@/utils/supabase/client'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Login() {
   const router = useRouter()
+  const supabase = createClient()
   const [formData, setFormData] = useState({
     phone: '',
     password: ''
@@ -19,6 +21,22 @@ export default function Login() {
   const [otp, setOtp] = useState('')
   const [verificationId, setVerificationId] = useState('')
   const [newPassword, setNewPassword] = useState('')
+
+  useEffect(() => {
+    // Check if user is already logged in
+    const checkAuth = async () => {
+      const { data: { session } } = await supabase.auth.getSession()
+      if (session) {
+        // Get redirect path if exists
+        const redirectPath = localStorage.getItem('redirectPath')
+        localStorage.removeItem('redirectPath') // Clear it after use
+        
+        // Redirect to the stored path or dashboard
+        router.push(redirectPath || '/dashboard')
+      }
+    }
+    checkAuth()
+  }, [router])
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.replace(/\D/g, '').slice(0, 10)
@@ -45,7 +63,12 @@ export default function Login() {
         throw new Error(data.error || 'Login failed')
       }
 
-      router.push('/dashboard')
+      // Get redirect path if exists
+      const redirectPath = localStorage.getItem('redirectPath')
+      localStorage.removeItem('redirectPath') // Clear it after use
+
+      // Redirect to the stored path or dashboard
+      router.push(redirectPath || '/dashboard')
     } catch (error) {
       setError(error instanceof Error ? error.message : 'Login failed')
     } finally {

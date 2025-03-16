@@ -32,14 +32,14 @@ export async function POST(request: Request) {
       )
     }
 
-    // Create session
+    // Create session token
     const token = await createSession(user.id)
-    const response = NextResponse.json({ success: true })
     
     // Set session cookie
     await setSessionCookie(token)
 
-    return response
+    // Return success response
+    return NextResponse.json({ success: true })
   } catch (error) {
     console.error('Login error:', error)
     return NextResponse.json(
