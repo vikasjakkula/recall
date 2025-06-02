@@ -10,17 +10,24 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "@supabase/ssr": "^0.5.2",
     "@supabase/supabase-js": "^2.49.1",
+    "@types/katex": "^0.16.7",
     "bcryptjs": "^3.0.2",
+    "better-react-mathjax": "^2.1.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "framer-motion": "^12.5.0",
     "jose": "^6.0.10",
+    "katex": "^0.16.21",
     "lucide-react": "^0.482.0",
     "next": "15.2.2",
     "postcss": "^8.5.3",
+    "prop-types": "^15.8.1",
     "razorpay": "^2.9.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-katex": "^3.0.1",
     "tailwind-merge": "^3.0.2",
     "tailwindcss-animate": "^1.0.7"
   },
@@ -29,6 +36,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/react-katex": "^3.0.4",
     "tailwindcss": "^4.0.14",
     "typescript": "^5"
   }

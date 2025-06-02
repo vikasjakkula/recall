@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { Inter } from 'next/font/google'
@@ -63,6 +63,9 @@ export default function Register() {
     setLoading(true)
 
     try {
+      // Get redirect path from localStorage if exists
+      const redirectPath = localStorage.getItem('redirectPath')
+
       const response = await fetch('/api/auth/verify-otp', {
         method: 'POST',
         headers: {
@@ -71,7 +74,8 @@ export default function Register() {
         body: JSON.stringify({
           verificationId,
           code: otp,
-          phone: formData.phone
+          phone: formData.phone,
+          redirectPath // Include redirect path in request
         })
       })
 
@@ -81,7 +85,11 @@ export default function Register() {
         throw new Error(data.error || 'OTP verification failed')
       }
 
-      router.push('/dashboard')
+      // Clear redirectPath from localStorage
+      localStorage.removeItem('redirectPath')
+
+      // Redirect to the specified path or dashboard
+      router.push(data.redirectPath || '/dashboard')
     } catch (error) {
       setError(error instanceof Error ? error.message : 'OTP verification failed')
     } finally {

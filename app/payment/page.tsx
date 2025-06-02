@@ -93,15 +93,16 @@ export default function Payment() {
         },
         handler: async (response: any) => {
           try {
+            console.log('Payment response:', response) // Add this for debugging
             const verifyResponse = await fetch('/api/payments/verify', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
               },
               body: JSON.stringify({
-                orderId: response.razorpay_order_id,
-                paymentId: response.razorpay_payment_id,
-                signature: response.razorpay_signature
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature
               })
             })
 
@@ -111,12 +112,15 @@ export default function Payment() {
               throw new Error(verifyData.error || 'Payment verification failed')
             }
 
-            // Redirect to success page
+            // Clear purchase intent and redirect to success page
+            localStorage.removeItem('purchaseIntent')
             router.push('/payment/success')
           } catch (error) {
             console.error('Payment verification error:', error)
             setError('Payment verification failed')
             setLoading(false)
+            // Redirect to failure page on verification error
+            router.push('/payment/failure')
           }
         },
         modal: {
@@ -181,22 +185,22 @@ export default function Payment() {
             </div>
           )}
 
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-lg font-medium text-gray-900">Order Summary</h3>
-              <div className="mt-4 bg-gray-50 rounded-lg p-4">
-                <div className="flex justify-between mb-2">
-                  <span className="text-gray-600">Complete Test Series Package</span>
-                  <span className="font-medium text-gray-900">₹900</span>
-                </div>
-                <div className="border-t border-gray-200 my-2"></div>
-                <div className="flex justify-between font-medium">
-                  <span className='text-gray-600'>Total</span>
-                  <span className='text-blue-600'>₹900</span>
-                </div>
+          <div>
+            <h3 className="text-lg font-medium text-gray-900">Order Summary</h3>
+            <div className="mt-4 bg-gray-50 rounded-lg p-4">
+              <div className="flex justify-between mb-2">
+                <span className="text-gray-600">Complete Test Series Package</span>
+                <span className="font-medium text-gray-900">₹900</span>
+              </div>
+              <div className="border-t border-gray-200 my-2"></div>
+              <div className="flex justify-between font-medium">
+                <span className='text-gray-600'>Total</span>
+                <span className='text-blue-600'>₹900</span>
               </div>
             </div>
+          </div>
 
+          <div className="mt-6">
             <button
               onClick={handlePayment}
               disabled={loading}
@@ -214,11 +218,11 @@ export default function Payment() {
                 'Pay Now'
               )}
             </button>
+          </div>
 
-            <div className="flex items-center justify-center gap-2">
-              <img src="https://razorpay.com/assets/razorpay-logo.svg" alt="Razorpay" className="h-5" />
-              <p className="text-xs text-gray-500">Secure payment by Razorpay</p>
-            </div>
+          <div className="flex items-center justify-center gap-2 mt-4">
+            <img src="https://razorpay.com/assets/razorpay-logo.svg" alt="Razorpay" className="h-5" />
+            <p className="text-xs text-gray-500">Secure payment by Razorpay</p>
           </div>
         </div>
       </div>

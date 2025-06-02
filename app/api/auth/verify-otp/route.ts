@@ -7,7 +7,7 @@ import { createSession } from '@/utils/auth'
 export async function POST(request: Request) {
   try {
     const body = await request.json()
-    const { verificationId, code, phone } = body
+    const { verificationId, code, phone, redirectPath } = body
 
     if (!verificationId || !code || !phone) {
       return NextResponse.json(
@@ -53,7 +53,10 @@ export async function POST(request: Request) {
 
     // Create response and set cookies in one go
     return new NextResponse(
-      JSON.stringify({ success: true }), 
+      JSON.stringify({ 
+        success: true,
+        redirectPath: redirectPath || '/dashboard' // Include the redirect path in response
+      }), 
       {
         status: 200,
         headers: {

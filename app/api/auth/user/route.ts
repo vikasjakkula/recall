@@ -11,7 +11,7 @@ export async function GET() {
     const supabase = createClient()
     const { data: user, error } = await supabase
       .from('users')
-      .select('phone, name, email')
+      .select('id, name, phone, email')
       .eq('id', userId)
       .single()
 

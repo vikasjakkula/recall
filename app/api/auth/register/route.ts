@@ -20,7 +20,7 @@ export async function POST(request: Request) {
     const { data: existingUser } = await supabase
       .from('users')
       .select('id')
-      .or(`phone.eq.${phone},email.eq.${email}`)
+      .or(`phone.eq.${phone}`)
       .single()
 
     if (existingUser) {

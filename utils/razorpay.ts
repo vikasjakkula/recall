@@ -1,7 +1,6 @@
 import crypto from 'crypto'
+import Razorpay from 'razorpay'
 
-// @ts-ignore
-const Razorpay = require('razorpay')
 
 // Add type declarations
 
@@ -31,58 +30,66 @@ if (typeof window === 'undefined') {
   })
 }
 
-export async function createOrder(userId: string): Promise<{
-  success: boolean
-  orderId?: string
-  error?: string
-}> {
-  try {
-    if (!razorpay) {
-      throw new Error('Razorpay not initialized')
-    }
+interface OrderParams {
+  amount: number
+  receipt: string
+  notes?: Record<string, string>
+}
 
-    // Generate a shorter receipt ID (max 40 chars)
-    const timestamp = Date.now().toString().slice(-8) // Last 8 digits of timestamp
-    const receiptId = `rcpt_${userId.slice(0, 8)}_${timestamp}`
+interface RazorpayOrder {
+  id: string
+  amount: number
+  amount_paid: number
+  amount_due: number
+  currency: string
+  receipt: string
+  status: string
+  attempts: number
+  notes: Record<string, string>
+  created_at: number
+}
+
+export async function createOrder(params: OrderParams): Promise<RazorpayOrder> {
+  try {
+    if (!process.env.RAZORPAY_KEY_ID || !process.env.RAZORPAY_KEY_SECRET) {
+      throw new Error('Missing Razorpay credentials')
+    }
 
     const order = await razorpay.orders.create({
-      amount: PLAN_AMOUNT,
+      amount: params.amount,
       currency: 'INR',
-      receipt: receiptId,
-      notes: {
-        userId
-      }
+      receipt: params.receipt,
+      notes: params.notes,
     })
 
-    return {
-      success: true,
-      orderId: order.id
-    }
+    return order
   } catch (error) {
     console.error('Razorpay order creation error:', error)
-    return {
-      success: false,
-      error: error instanceof Error ? error.message : 'Failed to create order'
-    }
+    throw new Error('Failed to create order')
   }
 }
 
-export function verifyPaymentSignature(
-  orderId: string,
-  paymentId: string,
-  signature: string
-): boolean {
-  if (!process.env.RAZORPAY_KEY_SECRET) {
-    throw new Error('RAZORPAY_KEY_SECRET must be set in environment variables')
-  }
+export function verifyPayment(orderId: string, paymentId: string, signature: string): boolean {
+  try {
+    const secret = process.env.RAZORPAY_KEY_SECRET
+    if (!secret) {
+      throw new Error('Missing Razorpay secret key')
+    }
 
-  const text = orderId + '|' + paymentId
-  const generated_signature = crypto
-    .createHmac('sha256', process.env.RAZORPAY_KEY_SECRET)
-    .update(text)
-    .digest('hex')
-  
-  return generated_signature === signature
+    const text = `${orderId}|${paymentId}`
+    const expectedSignature = crypto
+      .createHmac('sha256', secret)
+      .update(text)
+      .digest('hex')
+
+    return crypto.timingSafeEqual(
+      Buffer.from(signature),
+      Buffer.from(expectedSignature)
+    )
+  } catch (error) {
+    console.error('Payment verification error:', error)
+    return false
+  }
 }
 
 // Client-side configuration
@@ -94,5 +101,11 @@ export const RAZORPAY_CONFIG = {
   description: 'EamcetPro Premium Subscription',
   theme: {
     color: '#2563EB'
+  }
+}
+
+export function getRazorpayConfig() {
+  return {
+    key: process.env.RAZORPAY_KEY_ID,
   }
 } 
