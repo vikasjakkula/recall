@@ -100,7 +100,7 @@ export const RAZORPAY_CONFIG = {
   name: 'EamcetPro',
   description: 'EamcetPro Premium Subscription',
   theme: {
-    color: '#2563EB'
+    color: '#2d99f1ba'
   }
 }
 

@@ -82,12 +82,13 @@ export default function Home() {
       {/* Header Section */}
       <header className="container mx-auto px-8 max-w-7xl py-4 flex justify-between items-center">
         <div className="flex items-center">
-          <span className="text-blue-600 font-bold text-xl">eamcet<span className="text-gray-900">pro</span></span>
+          <Image src="/recallpro.png" alt="RecallPro Logo" width={150} height={150} className="mr-2 rounded" />
         </div>
         <nav className="hidden md:flex items-center gap-8">
           <a href="#features" className="text-gray-600 hover:text-blue-600">Features</a>
           <a href="#test-series" className="text-gray-600 hover:text-blue-600">Test Series</a>
           <a href="#pricing" className="text-gray-600 hover:text-blue-600">Pricing</a>
+          <Link href="/recall" className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">Recall</Link>
           <Link href="/auth/login" className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">Get Started</Link>
         </nav>
         <button className="md:hidden cursor-pointer">
@@ -559,7 +560,7 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-8 mb-12">
             <div>
               <div className="flex items-center mb-4">
-                <span className="text-blue-600 font-bold text-xl">eamcet<span className="text-gray-900">pro</span></span>
+              <Image src="/recallpro.png" alt="RecallPro Logo" width={150} height={150} className="mr-2 rounded" />
               </div>
               <p className="text-sm text-gray-600 mb-4">Helping students ace their TS & AP EAMCET exams with comprehensive preparation tools.</p>
               <div className="flex space-x-4">

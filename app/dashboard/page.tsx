@@ -430,7 +430,7 @@ export default function Dashboard() {
               <div className="flex justify-center mb-6">
                 <div className="relative h-48 w-48">
                   <svg viewBox="0 0 100 100" className="w-full h-full">
-                    <circle cx="50" cy="50" r="40" fill="none" stroke="#f1f5f9" strokeWidth="10" />
+                    <circle cx="50" cy="50" r="40" fill="none" stroke="#2d99f1ba" strokeWidth="10" />
                     <motion.circle 
                       cx="50" 
                       cy="50" 
@@ -518,7 +518,7 @@ export default function Dashboard() {
                 <div className="h-20 w-20 bg-blue-100 rounded-full flex items-center justify-center mb-3">
                   <UserIcon className="h-10 w-10 text-blue-600" />
                 </div>
-                <h2 className="font-semibold text-lg">Rahul Sharma</h2>
+                <h2 className="font-semibold text-lg">Rahul Sharma</h2> 
                 <p className="text-sm text-gray-600">rahul.s@gmail.com</p>
               </div>
               

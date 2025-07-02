@@ -191,6 +191,8 @@ function evaluateTest(
   };
 }
 
+import type { TestResult } from '@/types/test';
+
 async function updateUserAnalytics(userId: string, result: TestResult) {
   const supabase = createClient();
   
@@ -203,7 +205,7 @@ async function updateUserAnalytics(userId: string, result: TestResult) {
     
   if (!existingAnalytics) {
     // Create new analytics
-    const newAnalytics: TestAnalytics = {
+    const newAnalytics = {
       user_id: userId,
       total_tests_taken: 1,
       average_score: result.total_marks,
@@ -264,26 +266,35 @@ async function updateUserAnalytics(userId: string, result: TestResult) {
   }
 }
 
-function determineWeakAreas(sectionAnalysis: TestResult['section_wise_analysis']): string[] {
+// Define a type for section analysis to fix type errors
+type SectionAnalysis = {
+  [section: string]: {
+    correct: number;
+    // You can add more fields if needed
+  };
+};
+
+function determineWeakAreas(sectionAnalysis: SectionAnalysis): string[] {
   const weakAreas: string[] = [];
   const sections = Object.entries(sectionAnalysis);
-  
+
   sections.forEach(([section, analysis]) => {
+    // Ensure analysis is the expected type
     const totalQuestions = section === 'maths' ? 80 : 40;
     const scorePercentage = (analysis.correct / totalQuestions) * 100;
-    
+
     if (scorePercentage < 50) {
       weakAreas.push(section.charAt(0).toUpperCase() + section.slice(1));
     }
   });
-  
+
   return weakAreas;
 }
 
-function determineStrongAreas(sectionAnalysis: TestResult['section_wise_analysis']): string[] {
+function determineStrongAreas(sectionAnalysis: SectionAnalysis): string[] {
   const strongAreas: string[] = [];
   const sections = Object.entries(sectionAnalysis);
-  
+
   sections.forEach(([section, analysis]) => {
     const totalQuestions = section === 'maths' ? 80 : 40;
     const scorePercentage = (analysis.correct / totalQuestions) * 100;

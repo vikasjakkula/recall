@@ -685,7 +685,7 @@ export default function TestPage() {
 
               <button
                 onClick={handleSubmitTest}
-                className="w-full bg-[#3B4B6B] text-white py-2 rounded hover:bg-[#2D3B59] transition text-sm font-medium"
+                className="w-full bg-[#2d99f1ba] text-white py-2 rounded hover:bg-[#2D3B59] transition text-sm font-medium"
               >
                 SUBMIT TEST
               </button>
