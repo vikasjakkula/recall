@@ -12,16 +12,16 @@ module.exports = {
     extend: {
       colors: {
         blue: {
-          50:  '#2d99f1ba',
-          100: '#2d99f1ba',
-          200: '#2d99f1ba',
-          300: '#2d99f1ba',
-          400: '#2d99f1ba',
-          500: '#2d99f1ba',
-          600: '#2d99f1ba',
-          700: '#2d99f1ba',
-          800: '#2d99f1ba',
-          900: '#2d99f1ba',
+          50:  '#0000FF',
+          100: '#0000FF',
+          200: '#0000FF',
+          300: '#0000FF',
+          400: '#0000FF',
+          500: '#0000FF',
+          600: '#0000FF',
+          700: '#0000FF',
+          800: '#0000FF',
+          900: '#0000FF',
         },
         // To use a different color, just replace #2d99f1ba above with your preferred hex code.
       },
