@@ -38,7 +38,7 @@ export default function TestInstructionsPage() {
   return (
     <div className={`${inter.className} min-h-screen bg-gray-50 text-gray-900`}>
       <header className="bg-white border-b border-gray-200 py-4">
-        <div className="container mx-auto px-4 flex items-center">
+        <div className="container mx-auto px-4 sm:px-6 flex items-center">
           <div className="flex items-center gap-2">
             <span className="text-blue-600 font-bold text-xl">eamcet<span className="text-gray-900">pro</span></span>
           </div>
@@ -46,7 +46,7 @@ export default function TestInstructionsPage() {
         </div>
       </header>
 
-      <main className="container mx-auto px-4 py-6">
+      <main className="container mx-auto px-4 sm:px-6 py-6">
         <div className="flex flex-col sm:flex-row justify-between mb-4">
           <h2 className="text-xl font-bold mb-4 sm:mb-0">General Instructions:</h2>
           <div className="flex items-center">
@@ -69,7 +69,7 @@ export default function TestInstructionsPage() {
             
             <div className="overflow-x-auto -mx-4 sm:mx-0">
               <div className="inline-block min-w-full align-middle">
-                <table className="min-w-full divide-y divide-gray-200">
+                <table className="min-w-full divide-y divide-gray-200 text-xs sm:text-sm">
                   <thead>
                     <tr className="bg-gray-100">
                       <th className="px-3 py-2 text-left text-xs sm:text-sm font-medium text-gray-500">SI No.</th>

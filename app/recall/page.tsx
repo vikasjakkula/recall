@@ -45,7 +45,7 @@ function Sidebar({
   handleDelete: (type: 'subject' | 'lesson', id: string, parentId?: string) => void;
 }) {
   return (
-    <aside className="w-80 bg-white shadow-2xl border-r border-gray-100 px-6 py-8 overflow-y-auto flex flex-col min-h-screen">
+    <aside className="w-full sm:w-80 bg-white shadow-2xl border-r border-gray-100 px-4 sm:px-6 py-6 sm:py-8 overflow-y-auto flex flex-col min-h-screen">
       {/* Sidebar Header */}
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-gray-900 mb-2">Study Dashboard</h1>
@@ -157,7 +157,7 @@ function LessonContent({
   // Always fit to page: we show a "Fit to Page" button that is always visually "on" and do not provide any toggle.
   // The iframe will always be styled to fit the page.
   return (
-    <div className="flex-1 bg-gradient-to-br from-gray-50 to-blue-50 overflow-hidden">
+    <div className="flex-1 bg-gradient-to-br from-gray-50 to-blue-50 overflow-hidden p-4 sm:p-6 flex flex-col">
       <AnimatePresence mode="wait">
         {subject && lesson && pdfs.length > 0 ? (
           <motion.div
@@ -472,7 +472,7 @@ export default function StudyApp() {
   }
 
   return (
-    <div className="flex h-screen w-full font-inter bg-gray-50 overflow-hidden">
+    <div className="flex flex-col sm:flex-row min-h-screen w-full font-inter bg-gray-50 overflow-hidden">
       {/* Sidebar with subjects and lessons */}
       <Sidebar
         subjects={subjects}

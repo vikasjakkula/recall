@@ -49,5 +49,10 @@ export default function RefPage({ params }: Props) {
     recordVisit()
   }, [code, router])
 
-  return null // or a loading spinner
+  return (
+    <div className="w-full min-h-screen flex items-center justify-center bg-white">
+      {/* Centered loading spinner for mobile */}
+      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+    </div>
+  )
 } 

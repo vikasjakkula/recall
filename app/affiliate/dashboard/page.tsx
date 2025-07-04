@@ -89,7 +89,7 @@ export default function AffiliateDashboard() {
     <div className={`min-h-screen bg-gray-50 ${inter.className}`}>
       {/* Header */}
       <header className="bg-white shadow-sm sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto py-4 px-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+        <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
           <div className="flex justify-center sm:justify-start">
             <span className="text-blue-600 font-bold text-2xl">eamcet<span className="text-gray-900">pro</span></span>
           </div>
@@ -144,7 +144,7 @@ export default function AffiliateDashboard() {
         </div>
 
         {/* Stats Grid */}
-        <div className="space-y-4 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-6">
+        <div className="space-y-4 sm:space-y-0 grid grid-cols-1 sm:grid-cols-3 sm:gap-6">
           {/* Total Visits */}
           <div className="bg-white overflow-hidden rounded-xl shadow">
             <div className="p-4 sm:p-6">

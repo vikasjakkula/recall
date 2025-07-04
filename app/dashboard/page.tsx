@@ -106,12 +106,13 @@ export default function Dashboard() {
   return (
     <div className={`${inter.className} min-h-screen bg-gray-50 text-gray-900`}>
       <header className="bg-white border-b border-gray-200 fixed top-0 w-full z-10">
-        <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 py-3 flex justify-between items-center">
           <div className="flex items-center">
             <span className="text-blue-600 font-bold text-xl">eamcet<span className="text-gray-900">pro</span></span>
           </div>
+          {/* Desktop Nav */}
           {!isMobile && (
-            <nav className="flex items-center gap-6">
+            <nav className="flex items-center gap-4 md:gap-6">
               <button 
                 onClick={() => setActiveTab('home')}
                 className={`flex items-center gap-1 px-3 py-2 rounded-md ${activeTab === 'home' ? 'text-blue-600 bg-blue-50' : 'text-gray-900 hover:text-blue-600'}`}
@@ -142,6 +143,14 @@ export default function Dashboard() {
               </button>
             </nav>
           )}
+          {/* Mobile Nav Button */}
+          {isMobile && (
+            <button className="p-2" onClick={() => setActiveTab('home')}>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          )}
           <div className="flex items-center gap-3">
             <button className="bg-blue-600 text-white p-2 rounded-full">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -152,7 +161,7 @@ export default function Dashboard() {
         </div>
       </header>
 
-      <main className="container mx-auto px-4 pt-16 pb-20">
+      <main className="container mx-auto px-4 sm:px-6 md:px-8 pt-20 pb-20">
         {/* Home Tab */}
         {activeTab === 'home' && (
           <div className="py-6">
@@ -567,42 +576,6 @@ export default function Dashboard() {
           </div>
         )}
       </main>
-      
-      {/* Mobile navigation bar at bottom */}
-      {isMobile && (
-        <nav className="fixed bottom-0 w-full bg-white border-t border-gray-200 z-10">
-          <div className="flex justify-around">
-            <button 
-              onClick={() => setActiveTab('home')}
-              className={`flex flex-col items-center py-2 px-4 ${activeTab === 'home' ? 'text-blue-600' : 'text-gray-900'}`}
-            >
-              <HomeIcon className="h-6 w-6" />
-              <span className="text-xs mt-1">Home</span>
-            </button>
-            <button 
-              onClick={() => setActiveTab('tests')}
-              className={`flex flex-col items-center py-2 px-4 ${activeTab === 'tests' ? 'text-blue-600' : 'text-gray-900'}`}
-            >
-              <BookOpenIcon className="h-6 w-6" />
-              <span className="text-xs mt-1">Tests</span>
-            </button>
-            <button 
-              onClick={() => setActiveTab('performance')}
-              className={`flex flex-col items-center py-2 px-4 ${activeTab === 'performance' ? 'text-blue-600' : 'text-gray-900'}`}
-            >
-              <ChartBarIcon className="h-6 w-6" />
-              <span className="text-xs mt-1">Performance</span>
-            </button>
-            <button 
-              onClick={() => setActiveTab('profile')}
-              className={`flex flex-col items-center py-2 px-4 ${activeTab === 'profile' ? 'text-blue-600' : 'text-gray-900'}`}
-            >
-              <UserIcon className="h-6 w-6" />
-              <span className="text-xs mt-1">Profile</span>
-            </button>
-          </div>
-        </nav>
-      )}
     </div>
   )
 }

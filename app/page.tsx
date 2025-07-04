@@ -40,6 +40,7 @@ export default function Home() {
   const mathScore = useCountUp(72, 1500);
   const physicsScore = useCountUp(81, 1500);
   const chemistryScore = useCountUp(65, 1500);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   const toggleSection = (section: string) => {
     if (expandedSection === section) {
@@ -104,37 +105,60 @@ export default function Home() {
       </Head>
 
       {/* Header Section */}
-      <header className="container mx-auto px-8 max-w-7xl py-4 flex justify-between items-center">
+      <header className="container mx-auto px-4 sm:px-6 md:px-8 max-w-full py-4 flex justify-between items-center">
         <div className="flex items-center">
-          <Image src="/recallpro.png" alt="RecallPro Logo" width={150} height={150} className="mr-2 rounded" />
+          <Image src="/recallpro.png" alt="RecallPro Logo" width={120} height={120} className="mr-2 rounded" />
         </div>
+        {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
           <a href="#features" className="text-gray-600 hover:text-blue-600">Features</a>
           <a href="#test-series" className="text-gray-600 hover:text-blue-600">Test Series</a>
+          <a href="#syllabus" className="text-gray-600 hover:text-blue-600">Syllabus</a>
           <a href="#marks-vs-rank" className="text-gray-600 hover:text-blue-600">Cutoff's</a>
           <a href="#pricing" className="text-gray-600 hover:text-blue-600">Pricing</a>
           <Link href="/recall" className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">Recall</Link>
           <Link href="/auth/login" className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">Get Started</Link>
         </nav>
-        <button className="md:hidden cursor-pointer">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
+        {/* Mobile Nav Button */}
+        <div className="md:hidden flex items-center">
+          <button className="p-2" onClick={() => setMobileNavOpen(true)}>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+        {/* Mobile Nav Drawer */}
+        {mobileNavOpen && (
+          <div className="fixed inset-0 z-50 bg-black bg-opacity-40 flex justify-end">
+            <div className="w-4/5 max-w-xs bg-white h-full shadow-lg flex flex-col p-6">
+              <button className="self-end mb-6" onClick={() => setMobileNavOpen(false)}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              <a href="#features" className="mb-4 text-gray-700 hover:text-blue-600" onClick={() => setMobileNavOpen(false)}>Features</a>
+              <a href="#test-series" className="mb-4 text-gray-700 hover:text-blue-600" onClick={() => setMobileNavOpen(false)}>Test Series</a>
+              <a href="#marks-vs-rank" className="mb-4 text-gray-700 hover:text-blue-600" onClick={() => setMobileNavOpen(false)}>Cutoff's</a>
+              <a href="#pricing" className="mb-4 text-gray-700 hover:text-blue-600" onClick={() => setMobileNavOpen(false)}>Pricing</a>
+              <Link href="/recall" className="mb-4 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition" onClick={() => setMobileNavOpen(false)}>Recall</Link>
+              <Link href="/auth/login" className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition" onClick={() => setMobileNavOpen(false)}>Get Started</Link>
+            </div>
+          </div>
+        )}
       </header>
 
       <main>
         {/* Hero Section */}
-        <section className="container mx-auto px-8 max-w-7xl py-12 md:py-16 grid md:grid-cols-2 gap-8 items-center">
+        <section className="container mx-auto px-4 sm:px-6 md:px-8 max-w-full py-8 md:py-16 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div>
             <p className="text-sm font-semibold text-blue-600 inline-block bg-blue-50 px-4 py-1 rounded-full mb-3">#1 EAMCET TEST PREPARATION IN AP & TS</p>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Master EAMCET with <span className="text-blue-600">Smart</span> Test Prep</h1>
+            <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Master EAMCET with <span className="text-blue-600">Smart</span> Test Prep</h1>
             <p className="text-gray-600 mb-6">Maximize your score with our previous year papers and AI-powered performance analytics.</p>
-            <div className="flex flex-wrap gap-4 mb-10">
-              <Link href="/auth/register" className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition cursor-pointer">Start Preparing Now</Link>
-              <button className="border border-blue-600 text-blue-600 px-6 py-3 rounded-md hover:bg-blue-50 transition cursor-pointer">View Test Series</button>
+            <div className="flex flex-col sm:flex-row gap-4 mb-10">
+              <Link href="/auth/register" className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition cursor-pointer text-center">Start Preparing Now</Link>
+              <button className="border border-blue-600 text-blue-600 px-6 py-3 rounded-md hover:bg-blue-50 transition cursor-pointer text-center">View Test Series</button>
             </div>
-            <div className="flex gap-12">
+            <div className="flex gap-8 sm:gap-12 flex-wrap">
               <div>
                 <p className="text-2xl font-bold text-gray-900">{successfulStudents}+</p>
                 <p className="text-gray-500 text-sm">Successful Students</p>
@@ -145,7 +169,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-lg">
+          <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg">
             <h3 className="text-lg font-semibold mb-4">Your Performance Analytics</h3>
             <div className="space-y-4 mb-6">
               <div>
@@ -176,7 +200,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-4 gap-4 text-center">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
               <div className="bg-blue-100 rounded-lg p-3">
                 <p className="text-blue-600 font-bold text-xl">87%</p>
                 <p className="text-gray-600 text-xs">Accuracy</p>
@@ -697,7 +721,7 @@ export default function Home() {
               </div>
               
               <div className="pt-8 mt-8 border-t border-gray-200 text-center">
-                <p className="text-sm text-gray-500">© 2025 eamcetpro. All rights reserved.</p>
+                <p className="text-sm text-gray-500">© 2025All rights reserved. eamcetpro. </p>
               </div>
             </div>
           </footer>

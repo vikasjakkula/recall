@@ -12,3 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+export default function TestMainPage() {
+  return (
+    <div className="w-full min-h-screen flex items-center justify-center bg-white">
+      {/* Centered loading spinner for mobile */}
+      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+    </div>
+  )
+}
+

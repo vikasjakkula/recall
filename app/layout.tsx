@@ -30,10 +30,16 @@ export default function RootLayout({
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground min-h-screen flex flex-col`}
       >
+        {/*
+          Responsive container: All main content should use responsive paddings.
+          Use px-4 for mobile, px-6 for sm screens, px-8 for md+, and w-full for width.
+        */}
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {children}
+          <main className="flex-1 w-full max-w-full px-4 sm:px-6 md:px-8 mx-auto">
+            {children}
+          </main>
           <Footer />
         </ThemeProvider>
       </body>
