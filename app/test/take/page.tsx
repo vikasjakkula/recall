@@ -281,7 +281,7 @@ export default function TestPage() {
       return 'bg-red-500 text-white';
     }
     
-    return 'bg-white border border-gray-300';
+    return 'bg-background border border-border';
   };
   
   // Count stats
@@ -389,7 +389,7 @@ export default function TestPage() {
       {/* Sidebar: make collapsible/overlay on mobile */}
       {isSidebarOpen && (
         <aside className="fixed inset-0 z-50 bg-black bg-opacity-40 flex justify-end md:static md:bg-transparent md:w-64">
-          <div className="w-4/5 max-w-xs bg-white h-full shadow-lg flex flex-col p-4 md:p-6">
+          <div className="w-4/5 max-w-xs bg-background border border-border h-full shadow-lg flex flex-col p-4 md:p-6">
             {/* Profile section with stats */}
             <div className="bg-[#3B4B6B] text-white p-3 sm:p-4 rounded-lg mb-4">
               <div className="flex items-center gap-2 mb-3 sm:mb-4">
@@ -427,7 +427,7 @@ export default function TestPage() {
 
             {/* Section heading */}
             <div className="mb-3 sm:mb-4">
-              <h3 className="font-medium text-gray-900 text-xs sm:text-sm">Section: <span className="text-blue-600">{progress.activeSection}</span></h3>
+              <h3 className="font-medium text-foreground text-xs sm:text-sm">Section: <span className="text-blue-600">{progress.activeSection}</span></h3>
             </div>
 
             {/* Question numbers grid */}
@@ -447,7 +447,7 @@ export default function TestPage() {
                     progress.markedForReview.includes(question.question_number) ? 'bg-yellow-400 text-white' :
                     progress.answeredAndMarkedForReview.includes(question.question_number) ? 'bg-yellow-400 text-white relative after:content-["✓"] after:absolute after:text-green-800 after:text-xs after:right-1 after:top-0.5' :
                     progress.visitedQuestions.includes(question.question_number) ? 'bg-red-500 text-white' :
-                    'bg-white border border-gray-300'
+                    'bg-background border border-border'
                   }`}
                 >
                   {question.question_number}
@@ -465,13 +465,13 @@ export default function TestPage() {
       )}
       {/* Main content: responsive paddings and stacking */}
       <main className="flex-1 p-4 sm:p-6 flex flex-col">
-        <header className="bg-white border-b border-gray-200 flex justify-between items-center py-2 px-4 sticky top-0 z-50">
+        <header className="bg-background border-b border-border flex justify-between items-center py-2 px-4 sticky top-0 z-50">
           <div className="flex items-center">
-            <span className="text-blue-600 font-bold text-lg ml-2">eamcet<span className="text-gray-900">pro</span></span>
+            <span className="text-blue-600 font-bold text-lg ml-2">eamcet<span className="text-foreground">pro</span></span>
             <span className="ml-4 text-md font-medium hidden md:inline">{testData.test.test_name}</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="bg-gray-200 rounded-md px-2 sm:px-3 py-1">
+            <div className="bg-muted rounded-md px-2 sm:px-3 py-1">
               <span className="font-medium text-xs sm:text-sm md:text-base">Time: {formatTime(progress.timeRemaining)}</span>
             </div>
             <button 
@@ -498,9 +498,9 @@ export default function TestPage() {
                     <button 
                       key={section.section_id}
                       className={`px-2 py-1 mx-1 rounded text-xs sm:text-sm md:text-base ${
-                        progress.activeSection === section.section_name 
-                          ? 'bg-blue-600 text-white' 
-                          : 'bg-gray-200'
+                                              progress.activeSection === section.section_name 
+                        ? 'bg-blue-600 text-white' 
+                        : 'bg-muted'
                       }`}
                       onClick={() => {
                         const firstQuestionNumber = section.section_name.toLowerCase() === 'maths' ? 1 :
@@ -516,12 +516,12 @@ export default function TestPage() {
               </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm p-3 sm:p-6 mb-4">
+            <div className="bg-background border border-border rounded-lg shadow-sm p-3 sm:p-6 mb-4">
               <div className="flex justify-between items-center mb-4">
                 <div className="font-medium text-sm sm:text-base">Question {progress.currentQuestionId}</div>
                 <div className="flex items-center space-x-2 sm:space-x-4">
                   <div>
-                    <span className="text-gray-600 mr-1 text-xs sm:text-sm">Time:</span>
+                    <span className="text-muted-foreground mr-1 text-xs sm:text-sm">Time:</span>
                     <span className="text-xs sm:text-sm">00:{currentQuestion?.question_number.toString().padStart(2, '0')}</span>
                   </div>
                 </div>
@@ -632,13 +632,13 @@ export default function TestPage() {
                 <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
                   <button
                     onClick={handleMarkForReview}
-                    className="bg-gray-200 text-gray-800 px-3 sm:px-4 py-2 rounded-md hover:bg-gray-300 transition text-sm"
+                    className="bg-muted text-muted-foreground px-3 sm:px-4 py-2 rounded-md hover:bg-muted/80 transition text-sm"
                   >
                     Mark for Review & Next
                   </button>
                   <button
                     onClick={handleClearResponse}
-                    className="bg-gray-200 text-gray-800 px-3 sm:px-4 py-2 rounded-md hover:bg-gray-300 transition text-sm"
+                    className="bg-muted text-muted-foreground px-3 sm:px-4 py-2 rounded-md hover:bg-muted/80 transition text-sm"
                   >
                     Clear Response
                   </button>
@@ -657,7 +657,7 @@ export default function TestPage() {
                 onClick={goToPrevQuestion}
                 disabled={progress.currentQuestionId === 1}
                 className={`flex items-center text-sm ${
-                  progress.currentQuestionId === 1 ? 'text-gray-400 cursor-not-allowed' : 'text-blue-600 hover:text-blue-800'
+                  progress.currentQuestionId === 1 ? 'text-muted-foreground cursor-not-allowed' : 'text-blue-600 hover:text-blue-800'
                 }`}
               >
                 <ArrowLeftIcon className="h-4 w-4 mr-1" />
@@ -667,7 +667,7 @@ export default function TestPage() {
                 onClick={goToNextQuestion}
                 disabled={progress.currentQuestionId === testData.questions.length}
                 className={`flex items-center text-sm ${
-                  progress.currentQuestionId === testData.questions.length ? 'text-gray-400 cursor-not-allowed' : 'text-blue-600 hover:text-blue-800'
+                  progress.currentQuestionId === testData.questions.length ? 'text-muted-foreground cursor-not-allowed' : 'text-blue-600 hover:text-blue-800'
                 }`}
               >
                 <span>Next</span>

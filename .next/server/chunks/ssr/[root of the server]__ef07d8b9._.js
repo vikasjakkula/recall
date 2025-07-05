@@ -678,7 +678,7 @@ function TestPage() {
         if (progress.visitedQuestions.includes(questionId)) {
             return 'bg-red-500 text-white';
         }
-        return 'bg-white border border-gray-300';
+        return 'bg-background border border-border';
     };
     // Count stats
     const attemptedCount = Object.values(progress.answers).filter((answer)=>answer !== null).length;
@@ -827,7 +827,7 @@ function TestPage() {
             isSidebarOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("aside", {
                 className: "fixed inset-0 z-50 bg-black bg-opacity-40 flex justify-end md:static md:bg-transparent md:w-64",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "w-4/5 max-w-xs bg-white h-full shadow-lg flex flex-col p-4 md:p-6",
+                    className: "w-4/5 max-w-xs bg-background border border-border h-full shadow-lg flex flex-col p-4 md:p-6",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "bg-[#3B4B6B] text-white p-3 sm:p-4 rounded-lg mb-4",
@@ -1014,7 +1014,7 @@ function TestPage() {
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "mb-3 sm:mb-4",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                className: "font-medium text-gray-900 text-xs sm:text-sm",
+                                className: "font-medium text-foreground text-xs sm:text-sm",
                                 children: [
                                     "Section: ",
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1023,7 +1023,7 @@ function TestPage() {
                                     }, void 0, false, {
                                         fileName: "[project]/app/test/take/page.tsx",
                                         lineNumber: 430,
-                                        columnNumber: 85
+                                        columnNumber: 87
                                     }, this)
                                 ]
                             }, void 0, true, {
@@ -1045,7 +1045,7 @@ function TestPage() {
                                             setIsSidebarOpen(false);
                                         }
                                     },
-                                    className: `w-full h-8 sm:h-9 flex items-center justify-center rounded text-xs sm:text-sm ${progress.currentQuestionId === question.question_number ? 'bg-red-500 text-white' : progress.answers[question.question_number] ? 'bg-green-500 text-white' : progress.markedForReview.includes(question.question_number) ? 'bg-yellow-400 text-white' : progress.answeredAndMarkedForReview.includes(question.question_number) ? 'bg-yellow-400 text-white relative after:content-["✓"] after:absolute after:text-green-800 after:text-xs after:right-1 after:top-0.5' : progress.visitedQuestions.includes(question.question_number) ? 'bg-red-500 text-white' : 'bg-white border border-gray-300'}`,
+                                    className: `w-full h-8 sm:h-9 flex items-center justify-center rounded text-xs sm:text-sm ${progress.currentQuestionId === question.question_number ? 'bg-red-500 text-white' : progress.answers[question.question_number] ? 'bg-green-500 text-white' : progress.markedForReview.includes(question.question_number) ? 'bg-yellow-400 text-white' : progress.answeredAndMarkedForReview.includes(question.question_number) ? 'bg-yellow-400 text-white relative after:content-["✓"] after:absolute after:text-green-800 after:text-xs after:right-1 after:top-0.5' : progress.visitedQuestions.includes(question.question_number) ? 'bg-red-500 text-white' : 'bg-background border border-border'}`,
                                     children: question.question_number
                                 }, question.question_id, false, {
                                     fileName: "[project]/app/test/take/page.tsx",
@@ -1101,7 +1101,7 @@ function TestPage() {
                 className: "flex-1 p-4 sm:p-6 flex flex-col",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
-                        className: "bg-white border-b border-gray-200 flex justify-between items-center py-2 px-4 sticky top-0 z-50",
+                        className: "bg-background border-b border-border flex justify-between items-center py-2 px-4 sticky top-0 z-50",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "flex items-center",
@@ -1111,7 +1111,7 @@ function TestPage() {
                                         children: [
                                             "eamcet",
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "text-gray-900",
+                                                className: "text-foreground",
                                                 children: "pro"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/test/take/page.tsx",
@@ -1142,7 +1142,7 @@ function TestPage() {
                                 className: "flex items-center gap-2",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "bg-gray-200 rounded-md px-2 sm:px-3 py-1",
+                                        className: "bg-muted rounded-md px-2 sm:px-3 py-1",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             className: "font-medium text-xs sm:text-sm md:text-base",
                                             children: [
@@ -1213,7 +1213,7 @@ function TestPage() {
                                                     columnNumber: 19
                                                 }, this),
                                                 testData.sections.map((section)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                        className: `px-2 py-1 mx-1 rounded text-xs sm:text-sm md:text-base ${progress.activeSection === section.section_name ? 'bg-blue-600 text-white' : 'bg-gray-200'}`,
+                                                        className: `px-2 py-1 mx-1 rounded text-xs sm:text-sm md:text-base ${progress.activeSection === section.section_name ? 'bg-blue-600 text-white' : 'bg-muted'}`,
                                                         onClick: ()=>{
                                                             const firstQuestionNumber = section.section_name.toLowerCase() === 'maths' ? 1 : section.section_name.toLowerCase() === 'physics' ? 81 : section.section_name.toLowerCase() === 'chemistry' ? 121 : 1;
                                                             goToQuestion(firstQuestionNumber);
@@ -1241,7 +1241,7 @@ function TestPage() {
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "bg-white rounded-lg shadow-sm p-3 sm:p-6 mb-4",
+                                    className: "bg-background border border-border rounded-lg shadow-sm p-3 sm:p-6 mb-4",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "flex justify-between items-center mb-4",
@@ -1262,7 +1262,7 @@ function TestPage() {
                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         children: [
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                className: "text-gray-600 mr-1 text-xs sm:text-sm",
+                                                                className: "text-muted-foreground mr-1 text-xs sm:text-sm",
                                                                 children: "Time:"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/test/take/page.tsx",
@@ -1573,7 +1573,7 @@ function TestPage() {
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                             onClick: handleMarkForReview,
-                                                            className: "bg-gray-200 text-gray-800 px-3 sm:px-4 py-2 rounded-md hover:bg-gray-300 transition text-sm",
+                                                            className: "bg-muted text-muted-foreground px-3 sm:px-4 py-2 rounded-md hover:bg-muted/80 transition text-sm",
                                                             children: "Mark for Review & Next"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/test/take/page.tsx",
@@ -1582,7 +1582,7 @@ function TestPage() {
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                             onClick: handleClearResponse,
-                                                            className: "bg-gray-200 text-gray-800 px-3 sm:px-4 py-2 rounded-md hover:bg-gray-300 transition text-sm",
+                                                            className: "bg-muted text-muted-foreground px-3 sm:px-4 py-2 rounded-md hover:bg-muted/80 transition text-sm",
                                                             children: "Clear Response"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/test/take/page.tsx",
@@ -1622,7 +1622,7 @@ function TestPage() {
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                             onClick: goToPrevQuestion,
                                             disabled: progress.currentQuestionId === 1,
-                                            className: `flex items-center text-sm ${progress.currentQuestionId === 1 ? 'text-gray-400 cursor-not-allowed' : 'text-blue-600 hover:text-blue-800'}`,
+                                            className: `flex items-center text-sm ${progress.currentQuestionId === 1 ? 'text-muted-foreground cursor-not-allowed' : 'text-blue-600 hover:text-blue-800'}`,
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$heroicons$2f$react$2f$24$2f$outline$2f$esm$2f$ArrowLeftIcon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowLeftIcon$3e$__["ArrowLeftIcon"], {
                                                     className: "h-4 w-4 mr-1"
@@ -1647,7 +1647,7 @@ function TestPage() {
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                             onClick: goToNextQuestion,
                                             disabled: progress.currentQuestionId === testData.questions.length,
-                                            className: `flex items-center text-sm ${progress.currentQuestionId === testData.questions.length ? 'text-gray-400 cursor-not-allowed' : 'text-blue-600 hover:text-blue-800'}`,
+                                            className: `flex items-center text-sm ${progress.currentQuestionId === testData.questions.length ? 'text-muted-foreground cursor-not-allowed' : 'text-blue-600 hover:text-blue-800'}`,
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                     children: "Next"

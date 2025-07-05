@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
-import Footer from "@/components/Footer"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,10 +36,9 @@ export default function RootLayout({
           Use px-4 for mobile, px-6 for sm screens, px-8 for md+, and w-full for width.
         */}
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <main className="flex-1 w-full max-w-full px-4 sm:px-6 md:px-8 mx-auto">
+          <main className="flex-1 w-full max-w-ful">
             {children}
           </main>
-          <Footer />
         </ThemeProvider>
       </body>
     </html>

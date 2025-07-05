@@ -4,13 +4,12 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { Inter } from 'next/font/google'
-import { createClient } from '@/utils/supabase/client'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Login() {
   const router = useRouter()
-  const supabase = createClient()
   const [formData, setFormData] = useState({
     phone: '',
     password: ''
@@ -25,14 +24,20 @@ export default function Login() {
   useEffect(() => {
     // Check if user is already logged in
     const checkAuth = async () => {
-      const { data: { session } } = await supabase.auth.getSession()
-      if (session) {
-        // Get redirect path if exists
-        const redirectPath = localStorage.getItem('redirectPath')
-        localStorage.removeItem('redirectPath') // Clear it after use
-        
-        // Redirect to the stored path or dashboard
-        router.push(redirectPath || '/dashboard')
+      try {
+        const response = await fetch('/api/auth/check-session')
+        const data = await response.json()
+
+        if (data.authenticated) {
+          // Get redirect path if exists
+          const redirectPath = localStorage.getItem('redirectPath')
+          localStorage.removeItem('redirectPath') // Clear it after use
+          
+          // Redirect to the stored path or dashboard
+          router.push(redirectPath || '/dashboard')
+        }
+      } catch (error) {
+        console.error('Auth check error:', error)
       }
     }
     checkAuth()
