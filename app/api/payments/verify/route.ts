@@ -76,7 +76,7 @@ export async function POST(request: Request) {
     }
 
     // Get affiliate ID from cookie
-    const cookieStore = cookies()
+    const cookieStore = await cookies()
     const affiliateId = cookieStore.get('affiliate_id')?.value
 
     console.log('Processing payment for order:', {

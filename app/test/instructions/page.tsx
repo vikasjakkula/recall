@@ -14,7 +14,7 @@
 
 "use client";
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -22,7 +22,7 @@ import { testData } from '../data/testData';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export default function TestInstructionsPage() {
+function TestInstructionsContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const testId = searchParams.get('testId');
@@ -176,6 +176,14 @@ export default function TestInstructionsPage() {
         </div>
       </main>
     </div>
+  );
+}
+
+export default function TestInstructionsPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <TestInstructionsContent />
+    </Suspense>
   );
 }
 

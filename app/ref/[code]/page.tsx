@@ -1,16 +1,10 @@
 'use client'
 
-import { useEffect } from 'react'
+import { use, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
-interface Props {
-  params: {
-    code: string
-  }
-}
-
-export default function RefPage({ params }: Props) {
-  const { code } = params
+export default function RefPage({ params }: { params: Promise<{ code: string }> }) {
+  const { code } = use(params)
   const router = useRouter()
 
   useEffect(() => {
