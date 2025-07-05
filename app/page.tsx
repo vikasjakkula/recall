@@ -113,7 +113,7 @@ export default function Home() {
         <nav className="hidden md:flex items-center gap-8">
           <a href="#features" className="text-gray-600 hover:text-blue-600">Features</a>
           <a href="#test-series" className="text-gray-600 hover:text-blue-600">Test Series</a>
-          <a href="#syllabus" className="text-gray-600 hover:text-blue-600">Syllabus</a>
+          <Link href="/syllabus" className="text-gray-600 hover:text-blue-600">Syllabus</Link>
           <a href="#marks-vs-rank" className="text-gray-600 hover:text-blue-600">Cutoff's</a>
           <a href="#pricing" className="text-gray-600 hover:text-blue-600">Pricing</a>
           <Link href="/recall" className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">Recall</Link>
