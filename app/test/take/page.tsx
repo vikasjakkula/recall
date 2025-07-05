@@ -27,7 +27,7 @@ import { TestData, TestProgress, Question } from '@/types/test';
 import { getTestData, submitTest } from '@/utils/test';
 
 // For rendering LaTeX equations
-import 'katex/dist/katex.min.css';
+// import 'katex/dist/katex.min.css';
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
 
 const inter = Inter({ subsets: ['latin'] });
