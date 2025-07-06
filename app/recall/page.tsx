@@ -3,8 +3,6 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { createClient } from "../../utils/supabase/client";
 
-// Developer-only toggle
-const isDev = process.env.NEXT_PUBLIC_ENV === "development"; // Set NEXT_PUBLIC_ENV=development in .env.local for dev mode
 
 // Add types for Subject, Lesson, and LessonPdf
 interface Subject {
@@ -120,12 +118,7 @@ function Sidebar({
                 </motion.div>
               )}
             </AnimatePresence>
-            {isDev && (
-              <div className="flex gap-1 ml-2">
-                <button onClick={() => startEdit('subject', subject)} className="text-xs text-blue-600 underline">Edit</button>
-                <button onClick={() => handleDelete('subject', subject.id)} className="text-xs text-red-600 underline">Delete</button>
-              </div>
-            )}
+          
           </div>
         ))}
       </div>
@@ -217,12 +210,7 @@ function LessonContent({
                 }}
               />
             </div>
-            {isDev && pdfs.map(pdf => (
-              <div key={pdf.id} className="flex gap-2 mt-2">
-                <button onClick={() => startEdit('pdf', pdf)} className="text-xs text-blue-600 underline">Edit PDF</button>
-                <button onClick={() => handleDelete('pdf', pdf.id, lesson?.id)} className="text-xs text-red-600 underline">Delete PDF</button>
-              </div>
-            ))}
+          
           </motion.div>
         ) : (
           <motion.div
@@ -493,91 +481,6 @@ export default function StudyApp() {
         startEdit={startEdit}
         handleDelete={handleDelete}
       />
-      {/* Developer-only Add Button */}
-      {isDev && (
-        <button
-          className="fixed bottom-8 right-8 bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg z-50 hover:bg-blue-700"
-          onClick={() => setShowModal(true)}
-        >
-          + Add
-        </button>
-      )}
-      {/* Modal for adding subject/lesson/pdf */}
-      {showModal && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-          <div className="bg-white rounded-2xl p-8 w-full max-w-md shadow-xl">
-            <div className="flex gap-4 mb-6">
-              <button className={`px-4 py-2 rounded ${modalTab === "subject" ? "bg-blue-100 text-blue-700" : "bg-gray-100"}`} onClick={() => setModalTab("subject")}>Add Subject</button>
-              <button className={`px-4 py-2 rounded ${modalTab === "lesson" ? "bg-blue-100 text-blue-700" : "bg-gray-100"}`} onClick={() => setModalTab("lesson")}>Add Lesson</button>
-              <button className={`px-4 py-2 rounded ${modalTab === "pdf" ? "bg-blue-100 text-blue-700" : "bg-gray-100"}`} onClick={() => setModalTab("pdf")}>Add PDF</button>
-            </div>
-            {modalTab === "subject" && (
-              <form onSubmit={handleAddSubject} className="flex flex-col gap-4">
-                <input name="subjectName" value={form.subjectName} onChange={handleFormChange} placeholder="Subject Name" className="border p-2 rounded text-black placeholder:text-black" required />
-                <input name="subjectIcon" value={form.subjectIcon} onChange={handleFormChange} placeholder="Icon (emoji or SVG)" className="border p-2 rounded text-black placeholder:text-black" />
-                <button type="submit" className="bg-blue-600 text-black py-2 rounded font-semibold">Add Subject</button>
-                {successMessage && <div className="text-green-600 text-center mt-2">{successMessage}</div>}
-              </form>
-            )}
-            {modalTab === "lesson" && (
-              <form onSubmit={handleAddLesson} className="flex flex-col gap-4">
-                <select name="lessonSubjectId" value={form.lessonSubjectId} onChange={handleFormChange} className="border p-2 rounded text-black" required>
-                  <option value="">Select Subject</option>
-                  {subjects.map((s) => <option key={s.id} value={s.id}>{s.name}</option>)}
-                </select>
-                <input name="lessonName" value={form.lessonName} onChange={handleFormChange} placeholder="Lesson Name" className="border p-2 rounded text-black placeholder:text-black" required />
-                <input name="lessonPosition" type="number" value={form.lessonPosition} onChange={handleFormChange} placeholder="Position" className="border p-2 rounded text-black placeholder:text-black" min={1} />
-                <button type="submit" className="bg-blue-600 text-black py-2 rounded font-semibold">Add Lesson</button>
-                {successMessage && <div className="text-green-600 text-center mt-2">{successMessage}</div>}
-              </form>
-            )}
-            {modalTab === "pdf" && (
-              <form onSubmit={handleAddPdf} className="flex flex-col gap-4">
-                <select name="pdfLessonId" value={form.pdfLessonId} onChange={handleFormChange} className="border p-2 rounded text-black" required>
-                  <option value="">Select Lesson</option>
-                  {lessons.map((l) => <option key={l.id} value={l.id}>{l.name}</option>)}
-                </select>
-                <input name="pdfFile" type="file" accept="application/pdf" onChange={handleFormChange} className="border p-2 rounded text-black file:text-black" required />
-                <button type="submit" className="bg-blue-600 text-black py-2 rounded font-semibold">Upload PDF</button>
-                {successMessage && <div className="text-green-600 text-center mt-2">{successMessage}</div>}
-              </form>
-            )}
-            <button className="mt-6 text-gray-500 underline" onClick={() => setShowModal(false)}>Close</button>
-          </div>
-        </div>
-      )}
-      {editMode && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-          <div className="bg-white rounded-2xl p-8 w-full max-w-md shadow-xl">
-            <form onSubmit={handleEditSubmit} className="flex flex-col gap-4">
-              {editMode.type === 'subject' && (
-                <>
-                  <input name="name" value={editForm.name} onChange={handleEditFormChange} className="border p-2 rounded text-black" required />
-                  <input name="icon" value={editForm.icon} onChange={handleEditFormChange} className="border p-2 rounded text-black" />
-                </>
-              )}
-              {editMode.type === 'lesson' && (
-                <>
-                  <input name="name" value={editForm.name} onChange={handleEditFormChange} className="border p-2 rounded text-black" required />
-                  <input name="position" type="number" value={editForm.position} onChange={handleEditFormChange} className="border p-2 rounded text-black" min={1} />
-                  <select name="subject_id" value={editForm.subject_id} onChange={handleEditFormChange} className="border p-2 rounded text-black" required>
-                    {subjects.map((s) => <option key={s.id} value={s.id}>{s.name}</option>)}
-                  </select>
-                </>
-              )}
-              {editMode.type === 'pdf' && (
-                <>
-                  <input name="pdf_url" value={editForm.pdf_url} onChange={handleEditFormChange} className="border p-2 rounded text-black" required />
-                  <input name="pdfFile" type="file" accept="application/pdf" onChange={handleEditFormChange} className="border p-2 rounded text-black file:text-black" />
-                </>
-              )}
-              <button type="submit" className="bg-blue-600 text-black py-2 rounded font-semibold">Save</button>
-              <button type="button" className="text-gray-500 underline" onClick={() => setEditMode(null)}>Cancel</button>
-              {successMessage && <div className="text-green-600 text-center mt-2">{successMessage}</div>}
-            </form>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
