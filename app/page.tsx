@@ -120,17 +120,20 @@ export default function Home() {
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
       </Head>
 
-      {/* Header Section - Fixed, semi-transparent, shrinks on scroll */}
-      <header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          isNavbarShrunk
-            ? 'backdrop-blur-md bg-white/80 shadow-md py-2'
-            : 'backdrop-blur-lg bg-white/60 py-4 shadow-none'
-        }`}
-      >
-        <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-full flex justify-between items-center transition-all duration-300">
-          {/* Logo - clickable, shrinks on scroll */}
-          <div className="flex items-center">
+      {/* Header Section - Full width at top, shrinks to 7/8 on scroll, floating and rounded */}
+      <header className="fixed top-0 left-0 w-full z-50 flex justify-center pointer-events-none">
+        <div
+          className={`
+            pointer-events-auto
+            transition-all duration-300
+            ${isNavbarShrunk ? 'mt-2 w-7/8 max-w-6xl rounded-full shadow-xl bg-white/80 backdrop-blur-md border border-gray-200' : 'w-full rounded-none bg-white/70 backdrop-blur-md border-b border-gray-200 shadow-none'}
+            flex items-center
+            px-6
+            ${isNavbarShrunk ? 'py-2' : 'py-4'}
+          `}
+        >
+          {/* Logo - far left */}
+          <div className="flex items-center flex-shrink-0">
             <Image
               src="/recallpro.png"
               alt="RecallPro Logo"
@@ -140,25 +143,23 @@ export default function Home() {
               onClick={() => window.location.href = '/'}
             />
           </div>
-          {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-8">
-            {/* Features Link */}
-            <a href="#features" className="text-gray-600 hover:text-blue-600 transition-colors">Features</a>
-            {/* Test Series Link */}
-            <a href="#test-series" className="text-gray-600 hover:text-blue-600 transition-colors">Test Series</a>
-            {/* Syllabus Link */}
-            <Link href="/syllabus" className="text-gray-600 hover:text-blue-600 transition-colors">Syllabus</Link>
-            {/* Cutoff's Link */}
-            <a href="#marks-vs-rank" className="text-gray-600 hover:text-blue-600 transition-colors">Cutoff's</a>
-            {/* Pricing Link */}
-            <a href="#pricing" className="text-gray-600 hover:text-blue-600 transition-colors">Pricing</a>
-            {/* Recall Button */}
+          {/* Centered navigation links */}
+          <div className="flex-1 flex justify-center">
+            <nav className="flex items-center gap-8">
+              <a href="#features" className="text-gray-600 hover:text-blue-600 transition-colors">Features</a>
+              <a href="#test-series" className="text-gray-600 hover:text-blue-600 transition-colors">Test Series</a>
+              <Link href="/syllabus" className="text-gray-600 hover:text-blue-600 transition-colors">Syllabus</Link>
+              <a href="#marks-vs-rank" className="text-gray-600 hover:text-blue-600 transition-colors">Cutoff's</a>
+              <a href="#pricing" className="text-gray-600 hover:text-blue-600 transition-colors">Pricing</a>
+            </nav>
+          </div>
+          {/* Recall and Get Started - far right */}
+          <div className="flex items-center gap-4 flex-shrink-0">
             <Link href="/recall" className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">Recall</Link>
-            {/* Get Started Button */}
             <Link href="/auth/login" className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">Get Started</Link>
-          </nav>
-          {/* Mobile Nav Button */}
-          <div className="md:hidden flex items-center">
+          </div>
+          {/* Mobile Nav Button (unchanged) */}
+          <div className="md:hidden flex items-center ml-2">
             <button className="p-2" onClick={() => setMobileNavOpen(true)}>
               {/* Hamburger Icon */}
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
