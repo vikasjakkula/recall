@@ -153,10 +153,11 @@ export default function Home() {
               <a href="#pricing" className="text-gray-600 hover:text-blue-600 transition-colors">Pricing</a>
             </nav>
           </div>
-          {/* Recall and Get Started - far right */}
+          {/* Recall and Get Started - far right, pill-shaped buttons */}
           <div className="flex items-center gap-4 flex-shrink-0">
-            <Link href="/recall" className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">Recall</Link>
-            <Link href="/auth/login" className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">Get Started</Link>
+            {/* Pill effect: rounded-full for both buttons */}
+            <Link href="/recall" className="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition">Recall</Link>
+            <Link href="/auth/login" className="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition">Get Started</Link>
           </div>
           {/* Mobile Nav Button (unchanged) */}
           <div className="md:hidden flex items-center ml-2">
