@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">recalpro</string>
+    <string name="title_activity_main">recalpro</string>
+    <string name="package_name">com.recalpro.myapp</string>
+    <string name="custom_url_scheme">com.recalpro.myapp</string>
+</resources>
