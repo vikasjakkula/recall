@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export', // important for capacitor
+  // output: 'export', // important for capacitor
   images: {
     unoptimized: true,
   },

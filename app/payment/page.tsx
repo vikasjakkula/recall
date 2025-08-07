@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { Inter } from 'next/font/google'
+import { Raleway } from 'next/font/google'
 import { RAZORPAY_CONFIG } from '@/utils/razorpay'
 
-const inter = Inter({ subsets: ['latin'] })
+const raleway = Raleway({ subsets: ['latin'] })
 
 declare global {
   interface Window {
@@ -143,7 +143,7 @@ export default function Payment() {
   // Loading skeleton
   if (!isAuthenticated) {
     return (
-      <div className={`min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 ${inter.className}`}>
+      <div className={`min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 ${raleway.className}`} style={{ fontFamily: 'inherit' }}>
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <div className="flex justify-center">
             <div className="h-8 w-32 bg-gray-200 rounded animate-pulse"></div>
@@ -154,7 +154,7 @@ export default function Payment() {
         </div>
 
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-          <div className="bg-white py-8 px-4 shadow-xl shadow-gray-100 sm:rounded-lg sm:px-10 border border-gray-100">
+          <div className="bg-white py-8 px-4 shadow-xl shadow-gray-100 sm:rounded-lg sm:px-10 border border-gray-100" style={{ fontFamily: 'inherit' }}>
             <div className="space-y-6">
               <div className="h-24 bg-gray-100 rounded animate-pulse"></div>
               <div className="h-10 bg-gray-200 rounded animate-pulse"></div>
@@ -167,35 +167,35 @@ export default function Payment() {
   }
 
   return (
-    <div className={`min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 ${inter.className}`}>
+    <div className={`min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 ${raleway.className}`} style={{ fontFamily: 'inherit' }}>
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="flex justify-center">
-          <span className="text-blue-600 font-bold text-2xl">eamcet<span className="text-gray-900">pro</span></span>
+          <span className="text-blue-600 font-bold text-2xl" style={{ fontFamily: 'inherit' }}>eamcet<span className="text-gray-900" style={{ fontFamily: 'inherit' }}>pro</span></span>
         </div>
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900" style={{ fontFamily: 'inherit' }}>
           Complete Your Purchase
         </h2>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-4 shadow-xl shadow-gray-100 sm:rounded-lg sm:px-10 border border-gray-100">
+        <div className="bg-white py-8 px-4 shadow-xl shadow-gray-100 sm:rounded-lg sm:px-10 border border-gray-100" style={{ fontFamily: 'inherit' }}>
           {error && (
-            <div className="border border-red-200 bg-red-50 px-4 py-3 rounded-md mb-4 text-sm text-red-700">
+            <div className="border border-red-200 bg-red-50 px-4 py-3 rounded-md mb-4 text-sm text-red-700" style={{ fontFamily: 'inherit' }}>
               {error}
             </div>
           )}
 
           <div>
-            <h3 className="text-lg font-medium text-gray-900">Order Summary</h3>
-            <div className="mt-4 bg-gray-50 rounded-lg p-4">
+            <h3 className="text-lg font-medium text-gray-900" style={{ fontFamily: 'inherit' }}>Order Summary</h3>
+            <div className="mt-4 bg-gray-50 rounded-lg p-4" style={{ fontFamily: 'inherit' }}>
               <div className="flex justify-between mb-2">
-                <span className="text-gray-600">Complete Test Series Package</span>
-                <span className="font-medium text-gray-900">₹900</span>
+                <span className="text-gray-600" style={{ fontFamily: 'inherit' }}>Complete Test Series Package</span>
+                <span className="font-medium text-gray-900" style={{ fontFamily: 'inherit' }}>₹900</span>
               </div>
               <div className="border-t border-gray-200 my-2"></div>
               <div className="flex justify-between font-medium">
-                <span className='text-gray-600'>Total</span>
-                <span className='text-blue-600'>₹900</span>
+                <span className='text-gray-600' style={{ fontFamily: 'inherit' }}>Total</span>
+                <span className='text-blue-600' style={{ fontFamily: 'inherit' }}>₹900</span>
               </div>
             </div>
           </div>
@@ -205,6 +205,7 @@ export default function Payment() {
               onClick={handlePayment}
               disabled={loading}
               className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+              style={{ fontFamily: 'inherit' }}
             >
               {loading ? (
                 <>
@@ -222,7 +223,7 @@ export default function Payment() {
 
           <div className="flex items-center justify-center gap-2 mt-4">
             <img src="https://razorpay.com/assets/razorpay-logo.svg" alt="Razorpay" className="h-5" />
-            <p className="text-xs text-gray-500">Secure payment by Razorpay</p>
+            <p className="text-xs text-gray-500" style={{ fontFamily: 'inherit' }}>Secure payment by Razorpay</p>
           </div>
         </div>
       </div>
