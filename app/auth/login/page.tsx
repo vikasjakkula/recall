@@ -3,10 +3,9 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { Inter } from 'next/font/google'
+import { Raleway } from 'next/font/google'
 
-
-const inter = Inter({ subsets: ['latin'] })
+const raleway = Raleway({ subsets: ['latin'] })
 
 export default function Login() {
   const router = useRouter()
@@ -175,10 +174,15 @@ export default function Login() {
   }
 
   return (
-    <div className={`min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 ${inter.className}`}>
+    <div className={`min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 ${raleway.className}`}>
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="flex justify-center">
-          <span className="text-blue-600 font-bold text-2xl">eamcet<span className="text-gray-900">pro</span></span>
+          <img
+            src="/recallpro.png"
+            alt="RecallPro Logo"
+            className="h-16 w-auto mx-auto"
+            style={{ maxWidth: 180, height: 'auto' }}
+          />
         </div>
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
           {step === 'login' && 'Sign in to your account'}
@@ -220,7 +224,7 @@ export default function Login() {
           {step === 'login' && (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-900">
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-900" style={{ fontFamily: 'inherit' }}>
                   Phone Number
                 </label>
                 <input
@@ -232,12 +236,13 @@ export default function Login() {
                   onChange={handlePhoneChange}
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base"
                   maxLength={10}
+                  style={{ fontFamily: 'inherit' }}
                 />
-                <p className="mt-1 text-sm text-gray-500">Please enter a valid 10-digit phone number</p>
+                <p className="mt-1 text-sm text-gray-500" style={{ fontFamily: 'inherit' }}>Please enter a valid 10-digit phone number</p>
               </div>
 
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-900">
+                <label htmlFor="password" className="block text-sm font-medium text-gray-900" style={{ fontFamily: 'inherit' }}>
                   Password
                 </label>
                 <input
@@ -248,12 +253,14 @@ export default function Login() {
                   value={formData.password}
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base"
+                  style={{ fontFamily: 'inherit' }}
                 />
                 <div className="mt-1 flex justify-end">
                   <button
                     type="button"
                     onClick={() => setStep('forgot')}
                     className="text-sm font-medium text-blue-600 hover:text-blue-500"
+                    style={{ fontFamily: 'inherit' }}
                   >
                     Forgot password?
                   </button>
@@ -265,6 +272,7 @@ export default function Login() {
                   type="submit"
                   disabled={loading || formData.phone.length !== 10}
                   className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                  style={{ fontFamily: 'inherit' }}
                 >
                   {loading ? (
                     <>
@@ -285,7 +293,7 @@ export default function Login() {
           {step === 'forgot' && (
             <form onSubmit={handleForgotPassword} className="space-y-6">
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-900">
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-900" style={{ fontFamily: 'inherit' }}>
                   Phone Number
                 </label>
                 <input
@@ -297,8 +305,9 @@ export default function Login() {
                   onChange={handlePhoneChange}
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base"
                   maxLength={10}
+                  style={{ fontFamily: 'inherit' }}
                 />
-                <p className="mt-1 text-sm text-gray-500">Please enter a valid 10-digit phone number</p>
+                <p className="mt-1 text-sm text-gray-500" style={{ fontFamily: 'inherit' }}>Please enter a valid 10-digit phone number</p>
               </div>
 
               <div>
@@ -306,6 +315,7 @@ export default function Login() {
                   type="submit"
                   disabled={loading || formData.phone.length !== 10}
                   className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                  style={{ fontFamily: 'inherit' }}
                 >
                   {loading ? (
                     <>
@@ -326,7 +336,7 @@ export default function Login() {
           {step === 'verify-otp' && (
             <form onSubmit={handleVerifyOTP} className="space-y-6">
               <div>
-                <label htmlFor="otp" className="block text-sm font-medium text-gray-900">
+                <label htmlFor="otp" className="block text-sm font-medium text-gray-900" style={{ fontFamily: 'inherit' }}>
                   Enter OTP
                 </label>
                 <input
@@ -339,8 +349,9 @@ export default function Login() {
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-center text-2xl tracking-widest"
                   placeholder="• • • •"
                   maxLength={4}
+                  style={{ fontFamily: 'inherit' }}
                 />
-                <p className="mt-2 text-sm text-gray-500 text-center">
+                <p className="mt-2 text-sm text-gray-500 text-center" style={{ fontFamily: 'inherit' }}>
                   We've sent a 4-digit OTP to your phone number
                 </p>
               </div>
@@ -350,6 +361,7 @@ export default function Login() {
                   type="submit"
                   disabled={loading || otp.length !== 4}
                   className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                  style={{ fontFamily: 'inherit' }}
                 >
                   {loading ? (
                     <>
@@ -370,7 +382,7 @@ export default function Login() {
           {step === 'reset' && (
             <form onSubmit={handleResetPassword} className="space-y-6">
               <div>
-                <label htmlFor="new-password" className="block text-sm font-medium text-gray-900">
+                <label htmlFor="new-password" className="block text-sm font-medium text-gray-900" style={{ fontFamily: 'inherit' }}>
                   New Password
                 </label>
                 <input
@@ -381,6 +393,7 @@ export default function Login() {
                   value={newPassword}
                   onChange={(e) => setNewPassword(e.target.value)}
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base"
+                  style={{ fontFamily: 'inherit' }}
                 />
               </div>
 
@@ -389,6 +402,7 @@ export default function Login() {
                   type="submit"
                   disabled={loading || !newPassword}
                   className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                  style={{ fontFamily: 'inherit' }}
                 >
                   {loading ? (
                     <>

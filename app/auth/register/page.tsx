@@ -3,9 +3,9 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { Inter } from 'next/font/google'
+import { Raleway } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const raleway = Raleway({ subsets: ['latin'] })
 
 export default function Register() {
   const router = useRouter()
@@ -98,19 +98,24 @@ export default function Register() {
   }
 
   return (
-    <div className={`min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 ${inter.className}`}>
+    <div className={`min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 ${raleway.className}`}>
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="flex justify-center">
-          <span className="text-blue-600 font-bold text-2xl">eamcet<span className="text-gray-900">pro</span></span>
+        <img
+            src="/recallpro.png"
+            alt="RecallPro Logo"
+            className="h-16 w-auto mx-auto"
+            style={{ maxWidth: 180, height: 'auto', fontFamily: 'Raleway, sans-serif' }}
+          />
         </div>
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900" style={{ fontFamily: 'Raleway, sans-serif' }}>
           {step === 'details' ? 'Create your account' : 'Verify your phone'}
         </h2>
-        <p className="mt-2 text-center text-sm text-gray-600">
+        <p className="mt-2 text-center text-sm text-gray-600" style={{ fontFamily: 'Raleway, sans-serif' }}>
           {step === 'details' ? (
             <>
               Already have an account?{' '}
-              <Link href="/auth/login" className="font-medium text-blue-600 hover:text-blue-500">
+              <Link href="/auth/login" className="font-medium text-blue-600 hover:text-blue-500" style={{ fontFamily: 'Raleway, sans-serif' }}>
                 Sign in
               </Link>
             </>
@@ -121,17 +126,17 @@ export default function Register() {
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-4 shadow-xl shadow-gray-100 sm:rounded-lg sm:px-10 border border-gray-100">
+        <div className="bg-white py-8 px-4 shadow-xl shadow-gray-100 sm:rounded-lg sm:px-10 border border-gray-100" style={{ fontFamily: 'Raleway, sans-serif' }}>
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md mb-4 font-medium text-sm">
+            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md mb-4 font-medium text-sm" style={{ fontFamily: 'Raleway, sans-serif' }}>
               {error}
             </div>
           )}
 
           {step === 'details' ? (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6" style={{ fontFamily: 'Raleway, sans-serif' }}>
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-900">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-900" style={{ fontFamily: 'Raleway, sans-serif' }}>
                   Full Name
                 </label>
                 <input
@@ -142,11 +147,12 @@ export default function Register() {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base"
+                  style={{ fontFamily: 'Raleway, sans-serif' }}
                 />
               </div>
 
               <div>
-                <label htmlFor="college" className="block text-sm font-medium text-gray-900">
+                <label htmlFor="college" className="block text-sm font-medium text-gray-900" style={{ fontFamily: 'Raleway, sans-serif' }}>
                   College Name
                 </label>
                 <input
@@ -157,11 +163,12 @@ export default function Register() {
                   value={formData.college}
                   onChange={(e) => setFormData({ ...formData, college: e.target.value })}
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base"
+                  style={{ fontFamily: 'Raleway, sans-serif' }}
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-900">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-900" style={{ fontFamily: 'Raleway, sans-serif' }}>
                   Email Address
                 </label>
                 <input
@@ -172,11 +179,12 @@ export default function Register() {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base"
+                  style={{ fontFamily: 'Raleway, sans-serif' }}
                 />
               </div>
 
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-900">
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-900" style={{ fontFamily: 'Raleway, sans-serif' }}>
                   Phone Number
                 </label>
                 <input
@@ -188,12 +196,13 @@ export default function Register() {
                   onChange={(e) => handlePhoneChange(e, 'phone')}
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base"
                   maxLength={10}
+                  style={{ fontFamily: 'Raleway, sans-serif' }}
                 />
-                <p className="mt-1 text-sm text-gray-500">Please enter a valid 10-digit phone number</p>
+                <p className="mt-1 text-sm text-gray-500" style={{ fontFamily: 'Raleway, sans-serif' }}>Please enter a valid 10-digit phone number</p>
               </div>
 
               <div>
-                <label htmlFor="alt_phone" className="block text-sm font-medium text-gray-900">
+                <label htmlFor="alt_phone" className="block text-sm font-medium text-gray-900" style={{ fontFamily: 'Raleway, sans-serif' }}>
                   Alternative Phone Number (Optional)
                 </label>
                 <input
@@ -204,11 +213,12 @@ export default function Register() {
                   onChange={(e) => handlePhoneChange(e, 'alt_phone')}
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base"
                   maxLength={10}
+                  style={{ fontFamily: 'Raleway, sans-serif' }}
                 />
               </div>
 
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-900">
+                <label htmlFor="password" className="block text-sm font-medium text-gray-900" style={{ fontFamily: 'Raleway, sans-serif' }}>
                   Password
                 </label>
                 <input
@@ -219,6 +229,7 @@ export default function Register() {
                   value={formData.password}
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base"
+                  style={{ fontFamily: 'Raleway, sans-serif' }}
                 />
               </div>
 
@@ -227,6 +238,7 @@ export default function Register() {
                   type="submit"
                   disabled={loading || formData.phone.length !== 10}
                   className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                  style={{ fontFamily: 'Raleway, sans-serif' }}
                 >
                   {loading ? (
                     <>
@@ -243,9 +255,9 @@ export default function Register() {
               </div>
             </form>
           ) : (
-            <form onSubmit={handleVerifyOTP} className="space-y-6">
+            <form onSubmit={handleVerifyOTP} className="space-y-6" style={{ fontFamily: 'Raleway, sans-serif' }}>
               <div>
-                <label htmlFor="otp" className="block text-sm font-medium text-gray-900">
+                <label htmlFor="otp" className="block text-sm font-medium text-gray-900" style={{ fontFamily: 'Raleway, sans-serif' }}>
                   Enter OTP
                 </label>
                 <input
@@ -258,8 +270,9 @@ export default function Register() {
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-center text-2xl tracking-widest"
                   placeholder="• • • •"
                   maxLength={4}
+                  style={{ fontFamily: 'Raleway, sans-serif' }}
                 />
-                <p className="mt-2 text-sm text-gray-500 text-center">
+                <p className="mt-2 text-sm text-gray-500 text-center" style={{ fontFamily: 'Raleway, sans-serif' }}>
                   We've sent a 4-digit OTP to your phone number
                 </p>
               </div>
@@ -269,6 +282,7 @@ export default function Register() {
                   type="submit"
                   disabled={loading || otp.length !== 4}
                   className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                  style={{ fontFamily: 'Raleway, sans-serif' }}
                 >
                   {loading ? (
                     <>
