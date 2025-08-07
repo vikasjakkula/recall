@@ -23,7 +23,15 @@ module.exports = {
           800: '#0000FF',
           900: '#0000FF',
         },
-        // To use a different color, just replace #2d99f1ba above with your preferred hex code.
+        gray: {
+          600: '#4B5563', // Tailwind's default gray-600
+        },
+        mathematics: '#38bdf8', // sky blue
+        physics: '#fb923c', // orange
+        chemistry: '#22c55e', // green
+      },
+      fontFamily: {
+        raleway: 'var(--font-raleway)',
       },
     },
   },

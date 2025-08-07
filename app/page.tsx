@@ -146,11 +146,11 @@ export default function Home() {
           {/* Centered navigation links */}
           <div className="flex-1 flex justify-center">
             <nav className="flex items-center gap-8">
-              <a href="#features" className="text-gray-600 hover:text-blue-600 transition-colors">Features</a>
-              <a href="#test-series" className="text-gray-600 hover:text-blue-600 transition-colors">Test Series</a>
-              <Link href="/syllabus" className="text-gray-600 hover:text-blue-600 transition-colors">Syllabus</Link>
-              <a href="#marks-vs-rank" className="text-gray-600 hover:text-blue-600 transition-colors">Cutoff's</a>
-              <a href="#pricing" className="text-gray-600 hover:text-blue-600 transition-colors">Pricing</a>
+              <a href="#features" className="text-gray-600 font-raleway hover:text-blue-600 transition-colors">Features</a>
+              <a href="#test-series" className="text-gray-600 font-raleway hover:text-blue-600 transition-colors">Test Series</a>
+              <Link href="/syllabus" className="text-gray-600 font-raleway hover:text-blue-600 transition-colors">Syllabus</Link>
+              <a href="#marks-vs-rank" className="text-gray-600 font-raleway hover:text-blue-600 transition-colors">Cutoff's</a>
+              <a href="#pricing" className="text-gray-600 font-raleway hover:text-blue-600 transition-colors">Pricing</a>
             </nav>
           </div>
           {/* Recall and Get Started - far right, pill-shaped buttons */}

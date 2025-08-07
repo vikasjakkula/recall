@@ -163,16 +163,16 @@ const chemistryTopics = [
 
 const cardStyles = {
   math: {
-    bg: "bg-blue-100",
-    header: "bg-blue-800 text-white"
+    bg: "bg-mathematics/20",
+    header: "bg-mathematics text-white"
   },
   physics: {
-    bg: "bg-yellow-100",
-    header: "bg-yellow-800 text-white"
+    bg: "bg-physics/20",
+    header: "bg-physics text-white"
   },
   chemistry: {
-    bg: "bg-green-100",
-    header: "bg-green-800 text-white"
+    bg: "bg-chemistry/20",
+    header: "bg-chemistry text-white"
   }
 };
 
@@ -189,7 +189,7 @@ type SyllabusCardProps = {
 
 function SyllabusCard({ subject, topics, color }: SyllabusCardProps) {
   return (
-    <div className={`syllabus-card rounded-xl shadow-md p-6 mb-8 mx-auto ${cardStyles[color].bg}`} style={{ maxWidth: '700px', width: '100%' }}> 
+    <div className={`syllabus-card rounded-xl shadow-md p-6 mb-8 mx-auto font-raleway ${cardStyles[color].bg}`} style={{ maxWidth: '700px', width: '100%' }}>
       <div className={`text-2xl font-bold px-4 py-2 rounded-t-lg mb-4 ${cardStyles[color].header}`}>{subject}</div>
       {topics.map((section: SyllabusSection, idx: number) => (
         <div key={section.title} className="mb-4">
@@ -207,9 +207,9 @@ function SyllabusCard({ subject, topics, color }: SyllabusCardProps) {
 
 export default function SyllabusPage() {
   return (
-    <div className="min-h-screen bg-gray-50 py-10 px-2 md:px-0">
+    <div className="min-h-screen bg-gray-600 py-10 px-2 md:px-0 font-raleway">
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-black mb-10 text-center tracking-tight">TS & AP SYLLABUS</h1>
+        <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-10 text-center tracking-tight font-raleway">TS & AP SYLLABUS</h1>
         <SyllabusCard subject="Mathematics" topics={mathTopics} color="math" />
         <SyllabusCard subject="Physics" topics={physicsTopics} color="physics" />
         <SyllabusCard subject="Chemistry" topics={chemistryTopics} color="chemistry" />

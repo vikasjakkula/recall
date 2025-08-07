@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS orders (
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc', NOW())
 );
 
+
 -- Add indexes for better query performance
 CREATE INDEX IF NOT EXISTS orders_user_id_idx ON orders(user_id);
 CREATE INDEX IF NOT EXISTS orders_affiliate_id_idx ON orders(affiliate_id);
