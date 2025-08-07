@@ -149,7 +149,7 @@ export default function Home() {
               <a href="#features" className="text-gray-600 font-raleway hover:text-blue-600 transition-colors">Features</a>
               <a href="#test-series" className="text-gray-600 font-raleway hover:text-blue-600 transition-colors">Test Series</a>
               <Link href="/syllabus" className="text-gray-600 font-raleway hover:text-blue-600 transition-colors">Syllabus</Link>
-              <a href="#marks-vs-rank" className="text-gray-600 font-raleway hover:text-blue-600 transition-colors">Cutoff's</a>
+              <Link href="/cutoff" className="text-gray-600 font-raleway hover:text-blue-600 transition-colors">Cutoff's</Link>
               <a href="#pricing" className="text-gray-600 font-raleway hover:text-blue-600 transition-colors">Pricing</a>
             </nav>
           </div>
@@ -569,219 +569,183 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Mark's vs Rank Shortcut Button in Navbar */}
-        {/* 
-          To add the "Mark's vs Rank" shortcut button in the navbar, 
-          you should update your main navigation (likely in your layout or header component).
-          Example JSX for the navbar (add this after "Features" and after "Pricing"):
-        */}
-        {/* 
-          <nav className="flex items-center gap-4">
-            <a href="#features" className="text-gray-700 hover:text-blue-600 transition">Features</a>
-            <a href="#test-series" className="text-gray-700 hover:text-blue-600 transition">Test Series</a>
-            <a href="#pricing" className="text-gray-700 hover:text-blue-600 transition">Pricing</a>
-            <a
-              href="#marks-vs-rank"
-              className="text-gray-700 hover:text-blue-600 transition font-semibold px-3 py-1 rounded-md"
-            >
-              Mark's vs Rank
-            </a>
-            {/* ...other buttons */}
-          {/* 
-            <nav className="flex items-center gap-4">
-              <a href="#features" className="text-gray-700 hover:text-blue-600 transition">Features</a>
-              <a href="#test-series" className="text-gray-700 hover:text-blue-600 transition">Test Series</a>
-              <a href="#pricing" className="text-gray-700 hover:text-blue-600 transition">Pricing</a>
-              <a
-                href="#marks-vs-rank"
-                className="text-gray-700 hover:text-blue-600 transition font-semibold px-3 py-1 rounded-md"
+        {/* Pricing Section */}
+        <section id="pricing" className="container mx-auto px-8 max-w-7xl py-16">
+          <div className="text-center mb-12">
+            <p className="text-sm font-semibold text-blue-600 mb-2">Pricing</p>
+            <h2 className="text-3xl font-bold mb-3">Affordable Test Preparation</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">Get complete access to our test series at a special discount price.</p>
+          </div>
+          
+          <div className="max-w-md mx-auto bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden">
+            <div className="bg-blue-600 text-white p-6 text-center">
+              <h3 className="text-xl font-semibold">Complete Test Series Package</h3>
+              <p className="text-sm opacity-90">Everything you need for EAMCET success</p>
+            </div>
+            <div className="p-6">
+              <div className="flex justify-center items-baseline mb-6">
+                <span className="text-3xl font-bold">₹900</span>
+                <span className="text-gray-500 line-through ml-2">₹2500</span>
+                <span className="bg-green-100 text-green-800 text-xs font-semibold px-2 py-1 rounded ml-2">64% off</span>
+              </div>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-center text-gray-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  Access to all previous papers
+                </li>
+                <li className="flex items-center text-gray-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  Full mock test series (10+ tests)
+                </li>
+                <li className="flex items-center text-gray-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  Subject-wise practice tests
+                </li>
+                <li className="flex items-center text-gray-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  Detailed performance analytics
+                </li>
+                <li className="flex items-center text-gray-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  One-time payment (no subscription)
+                </li>
+                <li className="flex items-center text-gray-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  Valid until your EAMCET!
+                </li>
+              </ul>
+              <button 
+                className="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition cursor-pointer"
+                onClick={handlePurchase}
               >
-                Mark's vs Rank
-              </a>
-              {/* ...other buttons */}
-            {/* Mark's vs Rank Section */}
-            <section id="marks-vs-rank" className="container mx-auto px-4 sm:px-8 max-w-7xl py-24 flex flex-col items-center">
-              <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-blue-600 font-sans">Mark's vs Rank</h2>
-              <img src="/markvsrank.png" alt="( Mark's vs Rank )" className="w-full max-w-3xl rounded-xl shadow-lg border border-gray-200 font-raleway" />
-            </section>
-
-            {/* Pricing Section */}
-            <section id="pricing" className="container mx-auto px-8 max-w-7xl py-16">
-              <div className="text-center mb-12">
-                <p className="text-sm font-semibold text-blue-600 mb-2">Pricing</p>
-                <h2 className="text-3xl font-bold mb-3">Affordable Test Preparation</h2>
-                <p className="text-gray-600 max-w-2xl mx-auto">Get complete access to our test series at a special discount price.</p>
-              </div>
-              
-              <div className="max-w-md mx-auto bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden">
-                <div className="bg-blue-600 text-white p-6 text-center">
-                  <h3 className="text-xl font-semibold">Complete Test Series Package</h3>
-                  <p className="text-sm opacity-90">Everything you need for EAMCET success</p>
-                </div>
-                <div className="p-6">
-                  <div className="flex justify-center items-baseline mb-6">
-                    <span className="text-3xl font-bold">₹900</span>
-                    <span className="text-gray-500 line-through ml-2">₹2500</span>
-                    <span className="bg-green-100 text-green-800 text-xs font-semibold px-2 py-1 rounded ml-2">64% off</span>
-                  </div>
-                  <ul className="space-y-3 mb-6">
-                    <li className="flex items-center text-gray-600">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      Access to all previous papers
-                    </li>
-                    <li className="flex items-center text-gray-600">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      Full mock test series (10+ tests)
-                    </li>
-                    <li className="flex items-center text-gray-600">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      Subject-wise practice tests
-                    </li>
-                    <li className="flex items-center text-gray-600">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      Detailed performance analytics
-                    </li>
-                    <li className="flex items-center text-gray-600">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      One-time payment (no subscription)
-                    </li>
-                    <li className="flex items-center text-gray-600">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      Valid until your EAMCET!
-                    </li>
-                  </ul>
-                  <button 
-                    className="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition cursor-pointer"
-                    onClick={handlePurchase}
-                  >
-                    Purchase Now
-                  </button>
-                  <div className="flex items-center justify-center gap-2 mt-4">
-                    <img src="https://razorpay.com/assets/razorpay-logo.svg" alt="Razorpay" className="h-5" />
-                    <p className="text-xs text-gray-500">Secure payment by Razorpay</p>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* Affiliate Section */}
-            <section className="container mx-auto px-8 max-w-7xl py-8 mb-8">
-              <div className="max-w-3xl mx-auto border border-gray-200 rounded-lg p-6">
-                <h3 className="text-xl font-semibold mb-3">Affiliate Program</h3>
-                <p className="text-gray-600 mb-4">Recommend eamcetpro to others and earn income! Join our affiliate program and earn commission on each successful referral.</p>
-                <button className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition cursor-pointer">Become an Affiliate</button>
-              </div>
-            </section>
-          </main>
-
-          {/* Footer */}
-          <footer className="bg-gray-50 pt-12 pb-6">
-            <div className="container mx-auto px-8 max-w-7xl">
-              <div className="grid md:grid-cols-4 gap-8 mb-12">
-                <div>
-                  <div className="flex items-center mb-4">
-                    {/* If using Next.js, import Image from 'next/image' at the top of your file */}
-                    {/* If not using Next.js, replace <Image ... /> with <img ... /> */}
-                    <img
-                      src="/recallpro.png"
-                      alt="RecallPro Logo"
-                      width={150}
-                      height={150}
-                      className="mr-2 rounded cursor-pointer"
-                      onClick={() => window.location.href = '/'}
-                    />
-                  </div>
-                  <p className="text-sm text-gray-600 mb-4">Helping students ace their TS &amp; AP EAMCET exams with comprehensive preparation tools.</p>
-                  <div className="flex space-x-4">
-                    <a href="#" className="text-gray-400 hover:text-blue-600" aria-label="Instagram">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-instagram-icon h-5 w-5"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-                    </a>
-                    <a href="#" className="text-gray-400 hover:text-blue-600" aria-label="Twitter">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-twitter-icon h-5 w-5"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
-                    </a>
-                    <a href="#" className="text-gray-400 hover:text-blue-600" aria-label="YouTube">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-youtube-icon h-5 w-5"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
-                    </a>
-                    <a href="#" className="text-gray-400 hover:text-blue-600" aria-label="Facebook">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-facebook-icon h-5 w-5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-                    </a>
-                    <a href="#" className="text-gray-400 hover:text-blue-600" aria-label="LinkedIn">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-linkedin-icon h-5 w-5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                    </a>
-                    <a href="#" className="text-gray-400 hover:text-blue-600" aria-label="Link">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-link-icon h-5 w-5"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-                    </a>
-                  </div>
-                </div>
-                
-                <div>
-                  <h3 className="font-semibold mb-4">Quick Links</h3>
-                  <ul className="space-y-2 text-sm">
-                    <li><a href="#" className="text-gray-600 hover:text-blue-600">Home</a></li>
-                    <li><a href="#features" className="text-gray-600 hover:text-blue-600">Features</a></li>
-                    <li><a href="#test-series" className="text-gray-600 hover:text-blue-600">Test Series</a></li>
-                    <li><a href="#pricing" className="text-gray-600 hover:text-blue-600">Pricing</a></li>
-                    <li><a href="#" className="text-gray-600 hover:text-blue-600">Contact Us</a></li>
-                  </ul>
-                </div>
-                
-                <div>
-                  <h3 className="font-semibold mb-4">Resources</h3>
-                  <ul className="space-y-2 text-sm">
-                    <li><a href="#" className="text-gray-600 hover:text-blue-600">Blog</a></li>
-                    <li><a href="#" className="text-gray-600 hover:text-blue-600">Study Tips</a></li>
-                    <li><a href="#" className="text-gray-600 hover:text-blue-600">EAMCET Syllabus</a></li>
-                    <li><a href="#" className="text-gray-600 hover:text-blue-600">Success Stories</a></li>
-                    <li><a href="#" className="text-gray-600 hover:text-blue-600">Affiliate Program</a></li>
-                  </ul>
-                </div>
-                
-                <div>
-                  <h3 className="font-semibold mb-4">Contact Us</h3>
-                  <ul className="space-y-2 text-sm">
-                    <li className="flex items-start">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                      </svg>
-                      <span className="text-gray-600">support@eamcetpro.com</span>
-                    </li>
-                    <li className="flex items-start">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                      </svg>
-                      <span className="text-gray-600">+91 90456 78234</span>
-                    </li>
-                    <li className="flex items-start">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                      <div className="text-gray-600">
-                        <p>123, Tech Park, Hyderabad City</p>
-                        <p>Telangana, 500081</p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              
-              <div className="pt-8 mt-8 border-t border-gray-200 text-center">
-                <p className="text-sm text-gray-500">© 2025All rights reserved. eamcetpro. </p>
+                Purchase Now
+              </button>
+              <div className="flex items-center justify-center gap-2 mt-4">
+                <img src="https://razorpay.com/assets/razorpay-logo.svg" alt="Razorpay" className="h-5" />
+                <p className="text-xs text-gray-500">Secure payment by Razorpay</p>
               </div>
             </div>
-          </footer>
+          </div>
+        </section>
+
+        {/* Affiliate Section */}
+        <section className="container mx-auto px-8 max-w-7xl py-8 mb-8">
+          <div className="max-w-3xl mx-auto border border-gray-200 rounded-lg p-6">
+            <h3 className="text-xl font-semibold mb-3">Affiliate Program</h3>
+            <p className="text-gray-600 mb-4">Recommend eamcetpro to others and earn income! Join our affiliate program and earn commission on each successful referral.</p>
+            <button className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition cursor-pointer">Become an Affiliate</button>
+          </div>
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-gray-50 pt-12 pb-6">
+        <div className="container mx-auto px-8 max-w-7xl">
+          <div className="grid md:grid-cols-4 gap-8 mb-12">
+            <div>
+              <div className="flex items-center mb-4">
+                {/* If using Next.js, import Image from 'next/image' at the top of your file */}
+                {/* If not using Next.js, replace <Image ... /> with <img ... /> */}
+                <img
+                  src="/recallpro.png"
+                  alt="RecallPro Logo"
+                  width={150}
+                  height={150}
+                  className="mr-2 rounded cursor-pointer"
+                  onClick={() => window.location.href = '/'}
+                />
+              </div>
+              <p className="text-sm text-gray-600 mb-4">Helping students ace their TS &amp; AP EAMCET exams with comprehensive preparation tools.</p>
+              <div className="flex space-x-4">
+                <a href="#" className="text-gray-400 hover:text-blue-600" aria-label="Instagram">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-instagram-icon h-5 w-5"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                </a>
+                <a href="#" className="text-gray-400 hover:text-blue-600" aria-label="Twitter">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-twitter-icon h-5 w-5"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+                </a>
+                <a href="#" className="text-gray-400 hover:text-blue-600" aria-label="YouTube">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-youtube-icon h-5 w-5"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+                </a>
+                <a href="#" className="text-gray-400 hover:text-blue-600" aria-label="Facebook">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-facebook-icon h-5 w-5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                </a>
+                <a href="#" className="text-gray-400 hover:text-blue-600" aria-label="LinkedIn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-linkedin-icon h-5 w-5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href="#" className="text-gray-400 hover:text-blue-600" aria-label="Link">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-link-icon h-5 w-5"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                </a>
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="font-semibold mb-4">Quick Links</h3>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="text-gray-600 hover:text-blue-600">Home</a></li>
+                <li><a href="#features" className="text-gray-600 hover:text-blue-600">Features</a></li>
+                <li><a href="#test-series" className="text-gray-600 hover:text-blue-600">Test Series</a></li>
+                <li><a href="#pricing" className="text-gray-600 hover:text-blue-600">Pricing</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-blue-600">Contact Us</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="font-semibold mb-4">Resources</h3>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="text-gray-600 hover:text-blue-600">Blog</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-blue-600">Study Tips</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-blue-600">EAMCET Syllabus</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-blue-600">Success Stories</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-blue-600">Affiliate Program</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="font-semibold mb-4">Contact Us</h3>
+              <ul className="space-y-2 text-sm">
+                <li className="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <span className="text-gray-600">support@eamcetpro.com</span>
+                </li>
+                <li className="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span className="text-gray-600">+91 90456 78234</span>
+                </li>
+                <li className="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  <div className="text-gray-600">
+                    <p>123, Tech Park, Hyderabad City</p>
+                    <p>Telangana, 500081</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="pt-8 mt-8 border-t border-gray-200 text-center">
+            <p className="text-sm text-gray-500">© 2025All rights reserved. eamcetpro. </p>
+          </div>
         </div>
-      );
+      </footer>
+    </div>
+  );
 }
